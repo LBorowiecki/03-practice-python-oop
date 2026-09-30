@@ -7,20 +7,20 @@ class BankAccount:
         if amount > 0:
             self.__balance += amount
         else:
-            "wpłata musi być większa niż zero"
+            print("wpłata musi być większa niż zero")
     
     def withdraw(self, amount):
-        if self.__balance > 0:
+        if self.__balance > 0 and self.__balance > amount:
             self.__balance -= amount
         else:
-            "brak pieniędzy na koncie uniemożliwia wypłatę"
+            print("brak pieniędzy na koncie uniemożliwia wypłatę")
     
     def get_balance(self):
-        print(self.__balance)
+        return self.__balance
 
 account_1 = BankAccount("Jan Kowalski", 1000)
 
 account_1.deposit(2000)
-account_1.withdraw(1500)
-account_1.get_balance()
+account_1.withdraw(500)
+print(account_1.get_balance())
 
